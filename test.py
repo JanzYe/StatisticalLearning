@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 
 import Perceptron
 import k_NN
+import NaiveBayes
 
 
 def testPerceptron():
@@ -43,4 +44,19 @@ def test_k_NN():
     c = k_nn.judge()
     c
 
-test_k_NN()
+# test_k_NN()
+
+def testNaiveBayes():
+    # 第二行 1,2,3 对应 S,M,L
+    X = np.array(((1, 1), (1, 2), (1, 2), (1, 1), (1, 1),
+                  (2, 1), (2, 2), (2, 2), (2, 3), (2, 3),
+                  (3, 3), (3, 2), (3, 2), (3, 3), (3, 3))).T
+    Y = np.array((-1, -1, 1, 1, -1, -1, -1, 1, 1, 1, 1, 1, 1, 1, -1))
+
+    # 输入训练数据
+    naiveBayes = NaiveBayes.NaiveBayes(X, Y)
+    # 判断类型
+    out = naiveBayes.judge([2, 0])
+    out
+
+testNaiveBayes()
